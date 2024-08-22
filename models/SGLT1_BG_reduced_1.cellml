@@ -9,7 +9,7 @@
         <units name="J_per_mol" units_ref="J_per_mol"/>
         <units name="J_per_K_mol" units_ref="J_per_K_mol"/>
     </import>
-    <import xlink:href="params_BG_reduced.cellml">
+    <import xlink:href="params_BG_reduced_1.cellml">
         <component component_ref="params_BG" name="params_BG"/>
     </import>
     <component name="SGLT1_BG">

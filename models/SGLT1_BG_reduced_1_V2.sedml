@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" level="1" version="4">
+  <listOfModels>
+    <model id="SGLT1_BG_reduced_1EA" language="urn:sedml:language:cellml" source="SGLT1_BG_reduced_1.cellml">
+      <listOfChanges>
+        <changeAttribute target="/cellml:model/cellml:component[@name=&quot;params_BG&quot;]/cellml:variable[@name=&quot;test_volt&quot;]/@initial_value" newValue="0.05"/>
+        <changeAttribute target="/cellml:model/cellml:component[@name=&quot;params_BG&quot;]/cellml:variable[@name=&quot;Glco&quot;]/@initial_value" newValue="1e-12"/>
+      </listOfChanges>
+    </model>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim_SGLT1_BG_reduced_1EA" initialTime="0" outputStartTime="0" outputEndTime="4" numberOfSteps="4000">
+      <algorithm name="VODE" kisaoID="KISAO:0000535">
+        <listOfAlgorithmParameters>
+          <algorithmParameter name="rtol" kisaoID="KISAO:0000209" value="1e-9"/>
+          <algorithmParameter name="atol" kisaoID="KISAO:0000211" value="1e-9"/>
+        </listOfAlgorithmParameters>
+      </algorithm>
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA" simulationReference="sim_SGLT1_BG_reduced_1EA"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_t" name="dg_SGLT1_BG_reduced_1EA_t">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_t </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_t" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;t&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_Nai" name="dg_SGLT1_BG_reduced_1EA_mu_Nai">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_Nai </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_Nai" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_Nai&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_Nao" name="dg_SGLT1_BG_reduced_1EA_mu_Nao">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_Nao </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_Nao" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_Nao&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_Glci" name="dg_SGLT1_BG_reduced_1EA_mu_Glci">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_Glci </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_Glci" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_Glci&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_Glco" name="dg_SGLT1_BG_reduced_1EA_mu_Glco">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_Glco </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_Glco" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_Glco&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_1" name="dg_SGLT1_BG_reduced_1EA_mu_1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_2" name="dg_SGLT1_BG_reduced_1EA_mu_2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_2 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_2" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_2&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_3" name="dg_SGLT1_BG_reduced_1EA_mu_3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_3 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_3" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_3&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_5" name="dg_SGLT1_BG_reduced_1EA_mu_5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_5 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_5" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_5&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_6" name="dg_SGLT1_BG_reduced_1EA_mu_6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_zf1" name="dg_SGLT1_BG_reduced_1EA_mu_zf1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_zf1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_zf1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_zf1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_zr1" name="dg_SGLT1_BG_reduced_1EA_mu_zr1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_zr1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_zr1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_zr1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_zf6" name="dg_SGLT1_BG_reduced_1EA_mu_zf6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_zf6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_zf6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_zf6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_mu_zr6" name="dg_SGLT1_BG_reduced_1EA_mu_zr6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_mu_zr6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_mu_zr6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;mu_zr6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_V_Vm" name="dg_SGLT1_BG_reduced_1EA_V_Vm">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_V_Vm </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_V_Vm" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;V_Vm&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r1" name="dg_SGLT1_BG_reduced_1EA_v_r1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r2" name="dg_SGLT1_BG_reduced_1EA_v_r2">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r2 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r2" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r2&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r3" name="dg_SGLT1_BG_reduced_1EA_v_r3">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r3 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r3" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r3&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r5" name="dg_SGLT1_BG_reduced_1EA_v_r5">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r5 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r5" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r5&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r6" name="dg_SGLT1_BG_reduced_1EA_v_r6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_v_r7" name="dg_SGLT1_BG_reduced_1EA_v_r7">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_v_r7 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_v_r7" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;v_r7&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_I_zf1" name="dg_SGLT1_BG_reduced_1EA_I_zf1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_I_zf1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_I_zf1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;I_zf1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_I_zr1" name="dg_SGLT1_BG_reduced_1EA_I_zr1">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_I_zr1 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_I_zr1" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;I_zr1&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_I_zf6" name="dg_SGLT1_BG_reduced_1EA_I_zf6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_I_zf6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_I_zf6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;I_zf6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_I_zr6" name="dg_SGLT1_BG_reduced_1EA_I_zr6">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_I_zr6 </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_I_zr6" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;I_zr6&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_Ii" name="dg_SGLT1_BG_reduced_1EA_Ii">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_Ii </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_Ii" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;Ii&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="-1e-06"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_I_ss" name="dg_SGLT1_BG_reduced_1EA_I_ss">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_I_ss </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_I_ss" target="/cellml:model/cellml:component[@name=&quot;SGLT1_BG&quot;]/cellml:variable[@name=&quot;Ii&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1e-06"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_V0_Vm" name="dg_SGLT1_BG_reduced_1EA_V0_Vm">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_V0_Vm </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_V0_Vm" target="/cellml:model/cellml:component[@name=&quot;params_BG&quot;]/cellml:variable[@name=&quot;V0_Vm&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1000"/>
+      </listOfParameters>
+    </dataGenerator>
+    <dataGenerator id="dg_SGLT1_BG_reduced_1EA_V_E" name="dg_SGLT1_BG_reduced_1EA_V_E">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <apply>
+          <times/>
+          <ci> SGLT1_BG_reduced_1EA_V_E </ci>
+          <ci> scale </ci>
+        </apply>
+      </math>
+      <listOfVariables>
+        <variable id="SGLT1_BG_reduced_1EA_V_E" target="/cellml:model/cellml:component[@name=&quot;params_BG&quot;]/cellml:variable[@name=&quot;V_E&quot;]" taskReference="task_SGLT1_BG_reduced_1EA" modelReference="SGLT1_BG_reduced_1EA"/>
+      </listOfVariables>
+      <listOfParameters>
+        <parameter id="scale" value="1000"/>
+      </listOfParameters>
+    </dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="report_task_SGLT1_BG_reduced_1EA" name="report_task_SGLT1_BG_reduced_1EA">
+      <listOfDataSets>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_t" label="t" dataReference="dg_SGLT1_BG_reduced_1EA_t"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_Nai" label="mu_Nai" dataReference="dg_SGLT1_BG_reduced_1EA_mu_Nai"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_Nao" label="mu_Nao" dataReference="dg_SGLT1_BG_reduced_1EA_mu_Nao"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_Glci" label="mu_Glci" dataReference="dg_SGLT1_BG_reduced_1EA_mu_Glci"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_Glco" label="mu_Glco" dataReference="dg_SGLT1_BG_reduced_1EA_mu_Glco"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_1" label="mu_1" dataReference="dg_SGLT1_BG_reduced_1EA_mu_1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_2" label="mu_2" dataReference="dg_SGLT1_BG_reduced_1EA_mu_2"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_3" label="mu_3" dataReference="dg_SGLT1_BG_reduced_1EA_mu_3"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_5" label="mu_5" dataReference="dg_SGLT1_BG_reduced_1EA_mu_5"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_6" label="mu_6" dataReference="dg_SGLT1_BG_reduced_1EA_mu_6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_zf1" label="mu_zf1" dataReference="dg_SGLT1_BG_reduced_1EA_mu_zf1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_zr1" label="mu_zr1" dataReference="dg_SGLT1_BG_reduced_1EA_mu_zr1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_zf6" label="mu_zf6" dataReference="dg_SGLT1_BG_reduced_1EA_mu_zf6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_mu_zr6" label="mu_zr6" dataReference="dg_SGLT1_BG_reduced_1EA_mu_zr6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_V_Vm" label="V_Vm" dataReference="dg_SGLT1_BG_reduced_1EA_V_Vm"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r1" label="v_r1" dataReference="dg_SGLT1_BG_reduced_1EA_v_r1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r2" label="v_r2" dataReference="dg_SGLT1_BG_reduced_1EA_v_r2"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r3" label="v_r3" dataReference="dg_SGLT1_BG_reduced_1EA_v_r3"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r5" label="v_r5" dataReference="dg_SGLT1_BG_reduced_1EA_v_r5"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r6" label="v_r6" dataReference="dg_SGLT1_BG_reduced_1EA_v_r6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_v_r7" label="v_r7" dataReference="dg_SGLT1_BG_reduced_1EA_v_r7"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_I_zf1" label="I_zf1" dataReference="dg_SGLT1_BG_reduced_1EA_I_zf1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_I_zr1" label="I_zr1" dataReference="dg_SGLT1_BG_reduced_1EA_I_zr1"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_I_zf6" label="I_zf6" dataReference="dg_SGLT1_BG_reduced_1EA_I_zf6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_I_zr6" label="I_zr6" dataReference="dg_SGLT1_BG_reduced_1EA_I_zr6"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_Ii" label="Ii" dataReference="dg_SGLT1_BG_reduced_1EA_Ii"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_I_ss" label="I_ss" dataReference="dg_SGLT1_BG_reduced_1EA_I_ss"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_V0_Vm" label="V0_Vm" dataReference="dg_SGLT1_BG_reduced_1EA_V0_Vm"/>
+        <dataSet id="dataset_SGLT1_BG_reduced_1EA_V_E" label="V_E" dataReference="dg_SGLT1_BG_reduced_1EA_V_E"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+</sedML>

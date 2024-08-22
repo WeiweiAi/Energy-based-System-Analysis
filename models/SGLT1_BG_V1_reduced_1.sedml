@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <sedML level="1" version="3" xmlns="http://sed-ml.org/sed-ml/level1/version3" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
     <listOfModels>
-        <model id="model" language="urn:sedml:language:cellml.1_1" source="SGLT1_BG_reduced.cellml"/>
+        <model id="model" language="urn:sedml:language:cellml.1_1" source="SGLT1_BG_reduced_1.cellml"/>
     </listOfModels>
     <listOfSimulations>
-        <uniformTimeCourse id="simulation1" initialTime="0" numberOfPoints="40000" outputEndTime="4" outputStartTime="0">
+        <uniformTimeCourse id="simulation1" initialTime="0" numberOfPoints="4000" outputEndTime="4" outputStartTime="0">
             <algorithm kisaoID="KISAO:0000019">
                 <listOfAlgorithmParameters>
                     <algorithmParameter kisaoID="KISAO:0000211" value="1e-07"/>
