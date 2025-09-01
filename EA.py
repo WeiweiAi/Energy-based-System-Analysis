@@ -81,7 +81,7 @@ def symExp_to_funcEval(symExp, df):
 
     return func_eval,func_eval_integrate,func_eval_integrate_abs,func_eval_integrate_cumulative
 
-def calc_energy(P_comp_expr_dict,result_csv):
+def calc_energy(P_comp_expr_dict,result_csv,csv_file_name=None):
     """
     Calculate the energy and activity of the bond graph model
 
@@ -105,30 +105,22 @@ def calc_energy(P_comp_expr_dict,result_csv):
     df_result_csv=pd.read_csv(result_csv)
     # get the path of the csv file
     csv_path=Path(result_csv).parent
-    csv_file_name=Path(result_csv).stem
+    if csv_file_name is None:
+        csv_file_name=Path(result_csv).stem
     csv_file_power_comp=csv_path/(csv_file_name+'_comp_power.csv')
     csv_file_activity_comp=csv_path/(csv_file_name+'_comp_activity.csv')
-    E_comp_val=np.zeros(len(P_comp_expr_dict))
-    A_comp_val=np.zeros(len(P_comp_expr_dict))
-    AI_comp_val=np.zeros(len(P_comp_expr_dict))
     df_power_comp=pd.DataFrame(columns=P_comp_expr_dict.keys())
     df_activity_comp=pd.DataFrame(columns=P_comp_expr_dict.keys())
     df_power_comp['t']=df_result_csv['t']
     df_activity_comp['t']=df_result_csv['t']
-    i=0
-    A_total=0
+    df_activity=pd.DataFrame(columns=['Component','Energy','Activity'])
     for comp in P_comp_expr_dict:
         P_comp_expr=P_comp_expr_dict[comp]
-        df_power_comp[comp],E_comp_val[i],A_comp_val[i],df_activity_comp[comp]=symExp_to_funcEval(P_comp_expr,df_result_csv)
-        A_total+=A_comp_val[i]
-        i=i+1
-        
-    AI_comp_val=A_comp_val/A_total*100
+        df_power_comp[comp],E_comp_val,A_comp_val,df_activity_comp[comp]=symExp_to_funcEval(P_comp_expr,df_result_csv)
+        df_activity.loc[len(df_activity)]=[comp,E_comp_val,A_comp_val]  
     df_power_comp.to_csv(csv_file_power_comp,index=False)
     df_activity_comp.to_csv(csv_file_activity_comp,index=False)
-    dict_activity={'Componentl list':list(P_comp_expr_dict.keys()),'Energy': E_comp_val.tolist(), 'Activity': A_comp_val.tolist(), 'Activity Index': AI_comp_val.tolist(),
-                   }
-    save_json(dict_activity,csv_path/(csv_file_name+'_activity.json'))
+    df_activity.to_csv(csv_path/(csv_file_name+'_summary.csv'),index=False)
 
 if __name__ == "__main__": 
     # calculate the energy and activity of the bond graph model
@@ -148,17 +140,3 @@ if __name__ == "__main__":
     
     calc_energy(P_comp_expr_dict,result_csv)
     
-    result_csv=data_path+'report_task_New_Terkildsen_NaK_BG_Fig5_13EA.csv'
-    # calculate the energy and activity of the bond graph model
-    # 15 reactions R1-R15
-    reaction_list=['R1','R2','R3','R5','R6','R7','R8','R9','R11','R12','R13','R14','R15']
-    # 15 storage components, P1...P15, generate a list
-    storage_list=['P1','P2','P3','P5','P6','P7','P8','P9','P11','P12','P13','P14','P15']
-    P_comp_expr_dict={}
-    for reaction in reaction_list:
-        P_comp_expr_dict[reaction]=sympify(f'Af_{reaction}')*sympify(f'v_{reaction}')-sympify(f'Ar_{reaction}')*sympify(f'v_{reaction}')
-    
-    for storage in storage_list:
-        P_comp_expr_dict[storage]=sympify(f'v_{storage}')*sympify(f'mu_{storage}')
-    
-    calc_energy(P_comp_expr_dict,result_csv)
